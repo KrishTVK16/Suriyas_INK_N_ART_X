@@ -548,9 +548,18 @@ const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const htmlElement = document.documentElement;
 
-// Check for saved theme preference or default to LIGHT
-const currentTheme = localStorage.getItem('theme') || 'light';
+// Default to LIGHT (smoky/mist theme) - this is the default theme
+// Check if HTML already has data-theme set, otherwise use saved preference or default to light
+const htmlTheme = htmlElement.getAttribute('data-theme');
+const savedTheme = localStorage.getItem('theme');
+const currentTheme = htmlTheme || savedTheme || 'light';
+
+// Always set the theme attribute to ensure consistency
 htmlElement.setAttribute('data-theme', currentTheme);
+if (!savedTheme) {
+    // If no saved preference, save the default
+    localStorage.setItem('theme', currentTheme);
+}
 updateThemeIcon(currentTheme);
 
 themeToggle.addEventListener('click', () => {
@@ -564,8 +573,8 @@ themeToggle.addEventListener('click', () => {
 
 function updateThemeIcon(theme) {
     if (themeIcon) {
-        // Show moon icon when in light mode (to switch to dark)
-        // Show sun icon when in dark mode (to switch to light)
+        // Light mode = smoky/mist (show moon icon to switch to dark/bright)
+        // Dark mode = bright/clear (show sun icon to switch to light/smoky)
         if (theme === 'light') {
             themeIcon.classList.remove('fa-sun');
             themeIcon.classList.add('fa-moon');

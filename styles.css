@@ -1,16 +1,8 @@
 /* ============================================
    COLOR PALETTE & VARIABLES
    ============================================ */
-:root {
-    --primary: #0D0D0D;
-    --secondary: #8B0000;
-    --accent: #E8E8E8;
-    --text: #F5F5F5;
-    --subtle: #1F1F1F;
-    --highlight: #FF2400;
-    --extra: #3D3D3D;
-}
-
+/* Default theme: Smoky and Mist (Light Mode) */
+:root,
 [data-theme="light"] {
     --primary: #5A5A5A;
     --secondary: #A05252;
@@ -21,8 +13,26 @@
     --extra: #7B7B7B;
 }
 
+/* Dark theme: Bright and Clear Vision */
+[data-theme="dark"] {
+    --primary: #0D0D0D;
+    --secondary: #8B0000;
+    --accent: #E8E8E8;
+    --text: #F5F5F5;
+    --subtle: #1F1F1F;
+    --highlight: #FF2400;
+    --extra: #3D3D3D;
+}
+
+/* Smoky/Mist theme styling (light mode) */
+:root .hero-heading,
+:root .section-heading,
 [data-theme="light"] .hero-heading,
 [data-theme="light"] .section-heading,
+:root h1,
+:root h2,
+:root h3,
+:root h4,
 [data-theme="light"] h1,
 [data-theme="light"] h2,
 [data-theme="light"] h3,
@@ -30,10 +40,28 @@
     text-shadow: 0 0 20px rgba(216, 112, 112, 0.4);
 }
 
+:root .hero-subheading,
+:root p,
 [data-theme="light"] .hero-subheading,
 [data-theme="light"] p {
     color: var(--text);
     opacity: 0.95;
+}
+
+/* Bright/Clear theme styling (dark mode) */
+[data-theme="dark"] .hero-heading,
+[data-theme="dark"] .section-heading,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    text-shadow: 0 0 30px rgba(255, 36, 0, 0.5);
+}
+
+[data-theme="dark"] .hero-subheading,
+[data-theme="dark"] p {
+    color: var(--text);
+    opacity: 1;
 }
 
 /* ============================================
@@ -411,6 +439,19 @@ section {
     padding-top: 80px;
 }
 
+/* Enhanced smoky/mist effect for light theme */
+:root .hero,
+[data-theme="light"] .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--subtle) 100%);
+    filter: contrast(0.95) brightness(0.9);
+}
+
+/* Bright/clear vision for dark theme */
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--subtle) 100%);
+    filter: contrast(1.1) brightness(1.1);
+}
+
 .hero-background {
     position: absolute;
     top: 0;
@@ -426,6 +467,20 @@ section {
     height: 100%;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="smoke"><stop offset="0%" stop-color="rgba(139,0,0,0.1)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23smoke)" opacity="0.3"><animate attributeName="cy" values="200;150;200" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="400" r="200" fill="url(%23smoke)" opacity="0.2"><animate attributeName="cy" values="400;350;400" dur="5s" repeatCount="indefinite"/></circle><circle cx="1000" cy="600" r="180" fill="url(%23smoke)" opacity="0.25"><animate attributeName="cy" values="600;550;600" dur="6s" repeatCount="indefinite"/></circle></svg>');
     animation: smoke 10s infinite;
+    opacity: 0.6;
+}
+
+/* Enhanced smoke effect for light theme (smoky/mist) */
+:root .smoke-effect,
+[data-theme="light"] .smoke-effect {
+    opacity: 0.8;
+    filter: blur(2px);
+}
+
+/* Reduced smoke effect for dark theme (bright/clear) */
+[data-theme="dark"] .smoke-effect {
+    opacity: 0.2;
+    filter: blur(0px);
 }
 
 @keyframes smoke {
