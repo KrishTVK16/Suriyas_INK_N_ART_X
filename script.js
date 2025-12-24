@@ -548,14 +548,14 @@ const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const htmlElement = document.documentElement;
 
-// Check for saved theme preference or default to dark
-const currentTheme = localStorage.getItem('theme') || 'dark';
+// Check for saved theme preference or default to LIGHT
+const currentTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', currentTheme);
 updateThemeIcon(currentTheme);
 
 themeToggle.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
