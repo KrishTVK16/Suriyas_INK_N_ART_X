@@ -5,18 +5,56 @@ const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
+const homeDropdown = document.getElementById('homeDropdown');
+const homeDropdownMenu = document.getElementById('homeDropdownMenu');
+const navDropdown = document.querySelector('.nav-dropdown');
+
+// Home dropdown toggle
+if (homeDropdown && homeDropdownMenu) {
+    homeDropdown.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (navDropdown) {
+            navDropdown.classList.toggle('active');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navDropdown && !navDropdown.contains(e.target)) {
+            navDropdown.classList.remove('active');
+        }
+    });
+
+    // Close dropdown when clicking a dropdown link
+    const dropdownLinks = homeDropdownMenu.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navDropdown) {
+                navDropdown.classList.remove('active');
+            }
+        });
+    });
+}
 
 // Mobile menu toggle
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        if (navMenu) {
+            navMenu.classList.toggle('active');
+        }
+    });
+}
 
 // Close mobile menu when clicking a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     });
 });
 
@@ -56,16 +94,32 @@ window.addEventListener('scroll', activateNavLink);
 // Smooth scroll for nav links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
         const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
         
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        // If we're on home.html and clicking a section link, redirect to index.html
+        if (window.location.pathname.includes('home.html') && targetId && targetId.startsWith('#')) {
+            e.preventDefault();
+            window.location.href = 'index.html' + targetId;
+            return;
+        }
+        
+        // If link already points to index.html, let it navigate normally
+        if (targetId && targetId.includes('index.html')) {
+            return;
+        }
+        
+        // Otherwise, handle smooth scroll for same-page navigation
+        if (targetId && targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
