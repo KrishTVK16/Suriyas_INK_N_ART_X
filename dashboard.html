@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ink & Art Tattoo Studio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Set theme immediately to prevent flash
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- DASHBOARD HEADER -->
+    <header class="dashboard-header" id="dashboardHeader">
+        <div class="dashboard-header-container">
+            <a href="index.html" class="dashboard-logo">
+                <span class="logo-text">INK & ART</span>
+                <span class="ink-splatter">✕</span>
+            </a>
+
+            <div class="dashboard-user-desktop">
+                <div class="dashboard-user-info">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User Avatar"
+                        class="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name">John Doe</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-controls">
+                <button class="theme-toggle" id="dashboardThemeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="dashboardThemeIcon"></i>
+                </button>
+                <a href="index.html" class="btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+                <div class="dashboard-hamburger" id="dashboardHamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="dashboard-mobile-menu" id="dashboardMobileMenu">
+            <div class="dashboard-user-mobile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User Avatar"
+                    class="user-avatar">
+                <div class="user-details">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role">Admin</span>
+                </div>
+            </div>
+            <a href="index.html" class="btn btn-logout-mobile">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <main class="dashboard-content">
+        <div class="container">
+            <h1 class="dashboard-title">Dashboard Overview</h1>
+
+            <!-- Overview Statistics -->
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-number" data-target="247">0</h3>
+                        <p class="stat-label">Total Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-number" data-target="45890" data-prefix="$">$0</h3>
+                        <p class="stat-label">Total Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-number" data-target="892">0</h3>
+                        <p class="stat-label">Active Customers</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-number" data-target="4.9" data-decimal="true">0</h3>
+                        <p class="stat-label">Studio Rating</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="dashboard-grid">
+                <!-- Recent Bookings -->
+                <section class="dashboard-card">
+                    <h2 class="card-title">Recent Bookings</h2>
+                    <div class="bookings-list">
+                        <div class="booking-item">
+                            <div class="booking-info">
+                                <h4>Jessica Martinez</h4>
+                                <p>Traditional Sleeve</p>
+                                <span class="booking-date"><i class="fas fa-calendar"></i> Dec 28, 2025</span>
+                            </div>
+                            <span class="booking-status status-pending">Pending</span>
+                        </div>
+                        <div class="booking-item">
+                            <div class="booking-info">
+                                <h4>David Thompson</h4>
+                                <p>Realism Portrait</p>
+                                <span class="booking-date"><i class="fas fa-calendar"></i> Dec 27, 2025</span>
+                            </div>
+                            <span class="booking-status status-confirmed">Confirmed</span>
+                        </div>
+                        <div class="booking-item">
+                            <div class="booking-info">
+                                <h4>Amanda Lee</h4>
+                                <p>Japanese Back Piece</p>
+                                <span class="booking-date"><i class="fas fa-calendar"></i> Dec 26, 2025</span>
+                            </div>
+                            <span class="booking-status status-completed">Completed</span>
+                        </div>
+                        <div class="booking-item">
+                            <div class="booking-info">
+                                <h4>Michael Brown</h4>
+                                <p>Geometric Design</p>
+                                <span class="booking-date"><i class="fas fa-calendar"></i> Dec 25, 2025</span>
+                            </div>
+                            <span class="booking-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Appointments -->
+                <section class="dashboard-card">
+                    <h2 class="card-title">Upcoming Appointments</h2>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-time">
+                                <span class="time">10:00 AM</span>
+                                <span class="date">Dec 30</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Sarah Johnson</h4>
+                                <p><i class="fas fa-user"></i> Mike Rodriguez</p>
+                                <span class="appointment-type">Traditional Tattoo</span>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-time">
+                                <span class="time">2:00 PM</span>
+                                <span class="date">Dec 30</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Tom Wilson</h4>
+                                <p><i class="fas fa-user"></i> Sarah Chen</p>
+                                <span class="appointment-type">Realism Portrait</span>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-time">
+                                <span class="time">11:00 AM</span>
+                                <span class="date">Dec 31</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Emily Davis</h4>
+                                <p><i class="fas fa-user"></i> James Tanaka</p>
+                                <span class="appointment-type">Japanese Dragon</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Artist Performance -->
+            <section class="dashboard-card dashboard-full-width">
+                <h2 class="card-title">Artist Performance</h2>
+                <div class="artist-stats-grid">
+                    <div class="artist-stat-item">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100"
+                            alt="Mike Rodriguez">
+                        <h4>Mike Rodriguez</h4>
+                        <div class="artist-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Completed</span>
+                                <span class="metric-value">87</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Rating</span>
+                                <span class="metric-value">4.9 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-stat-item">
+                        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100" alt="Sarah Chen">
+                        <h4>Sarah Chen</h4>
+                        <div class="artist-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Completed</span>
+                                <span class="metric-value">76</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Rating</span>
+                                <span class="metric-value">5.0 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-stat-item">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100"
+                            alt="James Tanaka">
+                        <h4>James Tanaka</h4>
+                        <div class="artist-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Completed</span>
+                                <span class="metric-value">92</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Rating</span>
+                                <span class="metric-value">4.8 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-stat-item">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Emma Stone">
+                        <h4>Emma Stone</h4>
+                        <div class="artist-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Completed</span>
+                                <span class="metric-value">64</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Rating</span>
+                                <span class="metric-value">4.9 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Revenue Tracking -->
+            <section class="dashboard-card dashboard-full-width">
+                <h2 class="card-title">Revenue Tracking</h2>
+                <div class="revenue-overview">
+                    <div class="revenue-metric">
+                        <h3>$12,450</h3>
+                        <p>This Month</p>
+                        <span class="trend trend-up"><i class="fas fa-arrow-up"></i> 15%</span>
+                    </div>
+                    <div class="revenue-metric">
+                        <h3>$8,920</h3>
+                        <p>This Week</p>
+                        <span class="trend trend-up"><i class="fas fa-arrow-up"></i> 8%</span>
+                    </div>
+                    <div class="revenue-metric">
+                        <h3>$1,850</h3>
+                        <p>Today</p>
+                        <span class="trend trend-down"><i class="fas fa-arrow-down"></i> 5%</span>
+                    </div>
+                    <div class="revenue-metric">
+                        <h3>$890</h3>
+                        <p>Pending</p>
+                        <span class="trend trend-neutral"><i class="fas fa-minus"></i> 0%</span>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <h3>Payment Methods</h3>
+                    <div class="payment-breakdown">
+                        <div class="payment-item">
+                            <span><i class="fab fa-cc-visa"></i> Credit Card</span>
+                            <span class="payment-percent">65%</span>
+                        </div>
+                        <div class="payment-item">
+                            <span><i class="fas fa-money-bill-wave"></i> Cash</span>
+                            <span class="payment-percent">25%</span>
+                        </div>
+                        <div class="payment-item">
+                            <span><i class="fas fa-mobile-alt"></i> Digital Wallet</span>
+                            <span class="payment-percent">10%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="dashboard-grid">
+                <!-- Recent Reviews -->
+                <section class="dashboard-card">
+                    <h2 class="card-title">Recent Reviews</h2>
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <h4>Jessica Martinez</h4>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p>"Absolutely incredible work! Mike brought my vision to life perfectly."</p>
+                            <span class="review-date">2 days ago</span>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <h4>David Thompson</h4>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p>"Sarah's realism work is mind-blowing. Highly recommend!"</p>
+                            <span class="review-date">3 days ago</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Popular Services -->
+                <section class="dashboard-card">
+                    <h2 class="card-title">Popular Services</h2>
+                    <div class="services-stats">
+                        <div class="service-stat">
+                            <div class="service-info">
+                                <span class="service-name">Traditional</span>
+                                <span class="service-count">87 bookings</span>
+                            </div>
+                            <div class="service-bar">
+                                <div class="service-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="service-stat">
+                            <div class="service-info">
+                                <span class="service-name">Realism</span>
+                                <span class="service-count">76 bookings</span>
+                            </div>
+                            <div class="service-bar">
+                                <div class="service-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="service-stat">
+                            <div class="service-info">
+                                <span class="service-name">Japanese</span>
+                                <span class="service-count">64 bookings</span>
+                            </div>
+                            <div class="service-bar">
+                                <div class="service-progress" style="width: 63%"></div>
+                            </div>
+                        </div>
+                        <div class="service-stat">
+                            <div class="service-info">
+                                <span class="service-name">Geometric</span>
+                                <span class="service-count">45 bookings</span>
+                            </div>
+                            <div class="service-bar">
+                                <div class="service-progress" style="width: 44%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Activity Feed -->
+            <section class="dashboard-card dashboard-full-width">
+                <h2 class="card-title">Recent Activity</h2>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon activity-booking">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>New Booking</strong> from Jessica Martinez</p>
+                            <span class="activity-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon activity-review">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>New Review</strong> (5 stars) from David Thompson</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon activity-payment">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Payment Received</strong> $450 from Amanda Lee</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon activity-gallery">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Gallery Updated</strong> - 3 new images uploaded by Mike Rodriguez</p>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon activity-message">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>New Inquiry</strong> from potential customer about cover-up</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Referral Tracking -->
+            <section class="dashboard-card dashboard-full-width">
+                <h2 class="card-title">Referral Sources</h2>
+                <div class="referral-stats">
+                    <div class="referral-item">
+                        <div class="referral-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="referral-info">
+                            <h4>Instagram</h4>
+                            <p>142 referrals</p>
+                        </div>
+                        <span class="referral-percent">42%</span>
+                    </div>
+                    <div class="referral-item">
+                        <div class="referral-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="referral-info">
+                            <h4>Google Search</h4>
+                            <p>98 referrals</p>
+                        </div>
+                        <span class="referral-percent">29%</span>
+                    </div>
+                    <div class="referral-item">
+                        <div class="referral-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="referral-info">
+                            <h4>Friend Referral</h4>
+                            <p>72 referrals</p>
+                        </div>
+                        <span class="referral-percent">21%</span>
+                    </div>
+                    <div class="referral-item">
+                        <div class="referral-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="referral-info">
+                            <h4>Facebook</h4>
+                            <p>27 referrals</p>
+                        </div>
+                        <span class="referral-percent">8%</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Theme Toggle
+        const dashboardThemeToggle = document.getElementById('dashboardThemeToggle');
+        const dashboardThemeIcon = document.getElementById('dashboardThemeIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        dashboardThemeIcon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+        dashboardThemeToggle.addEventListener('click', () => {
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            dashboardThemeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+
+        // Mobile Menu Toggle
+        const dashboardHamburger = document.getElementById('dashboardHamburger');
+        const dashboardMobileMenu = document.getElementById('dashboardMobileMenu');
+
+        dashboardHamburger.addEventListener('click', () => {
+            dashboardHamburger.classList.toggle('active');
+            dashboardMobileMenu.classList.toggle('active');
+        });
+
+        // Animate Statistics on Load
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseFloat(stat.getAttribute('data-target'));
+                const prefix = stat.getAttribute('data-prefix') || '';
+                const isDecimal = stat.getAttribute('data-decimal') === 'true';
+                const increment = isDecimal ? target / 50 : target / 50;
+                let current = 0;
+
+                const updateStat = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.ceil(current));
+                        requestAnimationFrame(updateStat);
+                    } else {
+                        stat.textContent = prefix + (isDecimal ? target.toFixed(1) : target);
+                    }
+                };
+                updateStat();
+            });
+        }
+
+        // Run animation on page load
+        window.addEventListener('load', animateStats);
+    </script>
+</body>
+
+</html>

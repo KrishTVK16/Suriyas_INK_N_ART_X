@@ -2444,3 +2444,796 @@ section {
     }
 }
 
+/* ============================================
+   DASHBOARD STYLES
+   ============================================ */
+
+/* Dashboard Header */
+.dashboard-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary);
+    z-index: 1000;
+    border-bottom: 3px solid var(--secondary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--text);
+    text-shadow: 0 0 10px rgba(255, 36, 0, 0.5);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.dashboard-logo:hover {
+    transform: scale(1.05);
+}
+
+.dashboard-user-desktop {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.user-role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.dashboard-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.btn-logout {
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.dashboard-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.dashboard-hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+.dashboard-hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.dashboard-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.dashboard-hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.dashboard-mobile-menu {
+    display: none;
+    background: var(--primary);
+    border-top: 2px solid var(--secondary);
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.dashboard-mobile-menu.active {
+    display: flex;
+}
+
+.dashboard-user-mobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-logout-mobile {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    padding-top: 100px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--subtle) 100%);
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    color: var(--text);
+    text-shadow: 0 0 20px rgba(255, 36, 0, 0.3);
+}
+
+/* Statistics Cards */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--primary);
+    border-left: 5px solid var(--secondary);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 36, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: var(--highlight);
+    text-shadow: 0 0 10px rgba(255, 36, 0, 0.5);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--highlight);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    background: var(--primary);
+    border-left: 5px solid var(--secondary);
+    padding: 30px;
+    clip-path: polygon(0 0, 98% 0, 100% 100%, 0% 100%);
+}
+
+.dashboard-full-width {
+    margin-bottom: 40px;
+}
+
+.card-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--text);
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 36, 0, 0.3);
+}
+
+/* Bookings List */
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--subtle);
+    border-left: 3px solid var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.booking-item:hover {
+    transform: translateX(5px);
+}
+
+.booking-info h4 {
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.booking-info p {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.booking-date {
+    color: var(--accent);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.booking-status {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.status-pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border: 1px solid #FFC107;
+}
+
+.status-confirmed {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.status-completed {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid #2196F3;
+}
+
+/* Appointments List */
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.appointment-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: var(--subtle);
+    border-left: 3px solid var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.appointment-item:hover {
+    transform: translateX(5px);
+}
+
+.appointment-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: var(--primary);
+    border: 2px solid var(--secondary);
+    min-width: 80px;
+}
+
+.appointment-time .time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--highlight);
+}
+
+.appointment-time .date {
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.appointment-details h4 {
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.appointment-details p {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.appointment-type {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--secondary);
+    color: var(--text);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Artist Stats */
+.artist-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.artist-stat-item {
+    text-align: center;
+    padding: 20px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 36, 0, 0.3);
+}
+
+.artist-stat-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.artist-stat-item h4 {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.artist-metrics {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--highlight);
+}
+
+/* Revenue Overview */
+.revenue-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.revenue-metric {
+    text-align: center;
+    padding: 25px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+}
+
+.revenue-metric h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--highlight);
+    margin-bottom: 10px;
+}
+
+.revenue-metric p {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.trend {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.trend-up {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.trend-down {
+    background: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+}
+
+.trend-neutral {
+    background: rgba(158, 158, 158, 0.2);
+    color: #9E9E9E;
+}
+
+/* Payment Methods */
+.payment-methods {
+    padding: 20px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+}
+
+.payment-methods h3 {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.payment-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--primary);
+}
+
+.payment-item span {
+    color: var(--text);
+}
+
+.payment-percent {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--highlight);
+}
+
+/* Reviews */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-item {
+    padding: 20px;
+    background: var(--subtle);
+    border-left: 3px solid var(--secondary);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-header h4 {
+    color: var(--text);
+}
+
+.review-rating {
+    color: #FFC107;
+}
+
+.review-item p {
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+/* Popular Services */
+.services-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.service-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-name {
+    color: var(--text);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.service-count {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.service-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--subtle);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.service-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--highlight));
+    transition: width 0.6s ease;
+}
+
+/* Activity Feed */
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--subtle);
+    border-left: 3px solid var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+}
+
+.activity-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.activity-booking {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+}
+
+.activity-review {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+}
+
+.activity-payment {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.activity-gallery {
+    background: rgba(156, 39, 176, 0.2);
+    color: #9C27B0;
+}
+
+.activity-message {
+    background: rgba(255, 87, 34, 0.2);
+    color: #FF5722;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content p {
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+/* Referral Stats */
+.referral-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.referral-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--subtle);
+    border: 2px solid var(--secondary);
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    transition: transform 0.3s ease;
+}
+
+.referral-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 36, 0, 0.3);
+}
+
+.referral-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--text);
+    font-size: 1.5rem;
+}
+
+.referral-info {
+    flex: 1;
+}
+
+.referral-info h4 {
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.referral-info p {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.referral-percent {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--highlight);
+}
+
+/* Responsive Dashboard Styles */
+@media (max-width: 1024px) {
+    .dashboard-user-desktop {
+        display: none;
+    }
+
+    .dashboard-hamburger {
+        display: flex;
+    }
+
+    .btn-logout {
+        display: none;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artist-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .revenue-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .referral-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 2.5rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .artist-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .revenue-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
