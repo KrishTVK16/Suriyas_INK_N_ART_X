@@ -3555,4 +3555,130 @@ section {
         flex-direction: column;
         text-align: center;
     }
+
+    .review-header {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .review-header h4 {
+        margin: 0;
+    }
+
+    .review-rating {
+        font-size: 0.9rem;
+    }
+
+    .review-rating i {
+        font-size: 0.9rem;
+    }
+
+    .appointment-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .appointment-time {
+        min-width: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+    }
+
+    .appointment-details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .appointment-details h4 {
+        margin: 0;
+    }
+
+    .appointment-details p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .appointment-type {
+        align-self: flex-start;
+    }
+
+    .referral-stats {
+        grid-template-columns: 1fr;
+        max-height: 500px;
+        overflow-y: auto;
+        gap: 15px;
+    }
+
+    .referral-item {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .referral-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .referral-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .referral-info h4 {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .referral-info p {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+
+    .referral-percent {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .booking-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .booking-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .booking-info h4 {
+        margin: 0 0 5px 0;
+    }
+
+    .booking-info p {
+        margin: 0 0 5px 0;
+    }
+
+    .booking-date {
+        margin: 0;
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+
+    .booking-status {
+        align-self: center;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
 }
